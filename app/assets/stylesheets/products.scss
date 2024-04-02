@@ -29,7 +29,9 @@ main section.categories-show {
         font-size: 1rem;
         border-radius: 0.25rem;
       }
-
+      .soldout-add {
+        opacity: 0.7; /* Reduce opacity */
+      }
       a {
         text-decoration: none;
       }
