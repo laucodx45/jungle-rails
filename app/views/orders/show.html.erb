@@ -1,8 +1,39 @@
 <section class="orders-show">
-
+  
   <header class="page-header">
     <h1>Order #<%= @order.id %></h1>
   </header>
+
+  <h4> Email: <%= @order.email %> </h4>
+
+  <div class="panel panel-default items">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th colspan="2">Product</th>
+          <th>Unit Price</th>
+          <th>Quantity</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @line_items.each do |item| %>
+          <% product = @order_products.find { |product| product.id == item.product_id } %>
+          <%= render 'item', product: product, quantity: item.quantity.to_i %>
+        <% end %>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th colspan="4">
+            ORDER TOTAL:
+          </th>
+          <th class="money-format">
+            <%= @order.total_cents / 100.0 %>
+          </th>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
 
   <div class="order-summary jumbotron">
     <h4>Thank you for your order!</h4>
