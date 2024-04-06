@@ -1,13 +1,12 @@
-<section class="categories-index">
+<section class="admin-categories">
   
   <header class="page-header">
-    <h1>CREATE NEW CATEGORY</h1>
+    <h1>Admin » New Category</h1>
   </header>
 
   <%= form_for [:admin, @category] do |form| %>
     <div class="form-group">
-      <p>New catagory</p>
-      <%= form.text_field :name, class: 'form-control' %>
+      <%= form.text_field :name, placeholder: 'New Category Name' %>
     </div>
     <%= form.submit 'Create Category', class: 'btn btn-primary' %>
   <% end %>
