@@ -3,7 +3,9 @@
   <header class="page-header">
     <h1>Admin » New Category</h1>
   </header>
-
+  <div class="well">
+    <%= link_to 'All Categories', [:admin, :categories], class: 'btn btn-info' %>
+  </div>
   <%= form_for [:admin, @category] do |form| %>
     <div class="form-group">
       <%= form.text_field :name, placeholder: 'New Category Name' %>
